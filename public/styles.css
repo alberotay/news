@@ -1,0 +1,353 @@
+.barra-superior {
+        
+    background-color: #333;
+    color: #fff;
+    padding: 5px 0;
+    text-align: right;
+    width: 100%;
+    position: fixed; /* Fijar la barra en la parte superior */
+    top: 0; /* Colocarla en la parte superior */
+    z-index: 9999; /* Valor alto para que esté por encima de otros elementos */
+}
+
+    .boton-desplegable {
+    position: relative;
+    display: inline-block;
+    margin-right: 20px; /* Espaciado entre el botón y otros elementos */
+}
+
+.boton-desplegable .automatizarButton {
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.contenido-desplegable {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.boton-desplegable:hover .contenido-desplegable {
+    display: block;
+}
+
+.contenido-desplegable a {
+    color: #fff;
+    padding: 10px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.contenido-desplegable a:hover {
+    background-color: #555;
+}
+
+/* Estilos para cuando se hace clic */
+.boton-desplegable.active .contenido-desplegable {
+    display: block;
+}
+
+        
+    body {
+        
+        font-family: Arial, sans-serif;
+        
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        min-height: 100vh;
+        background-color: #f5f5f5;
+        overflow-x: hidden;
+        
+    }
+    img {
+        width: 150px; /* Ajusta el ancho de la imagen según tus preferencias */
+    height: auto; /* Mantén la proporción original */
+    border-radius: 5px; /* Agrega bordes redondeados */
+    /* margin-right: 6px; */
+    
+}
+    .news-image {
+    width: 150px; /* Ajusta el ancho de la imagen según tus preferencias */
+    height: auto; /* Mantén la proporción original */
+    border-radius: 5px; /* Agrega bordes redondeados */
+    /*margin-right: 30px;  Espacio entre la imagen y el texto 
+    margin-left: 40px*/
+}
+
+
+    .news-item {
+        display: flex; /* Mostrar como fila */
+        flex-wrap: wrap; /* Romper en múltiples líneas si es necesario */
+        border-bottom: 1px solid #ddd;
+        padding: 20px;
+    }
+
+   
+    .news-title a {
+    color: #000;
+    text-decoration: none; /* Elimina la subrayado predeterminado de los enlaces */
+    
+}
+
+    .news-content {
+        flex: 1; /* Ocupar el espacio restante */
+    }
+
+    .news-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 5px;
+}
+.news-description img {
+    display: block;  
+    margin: 0 auto; /* Centrar la imagen horizontalmente */
+}
+
+
+    .news-description {
+        flex: 1; /* Ocupar el espacio restante para la descripción */
+        
+    }
+
+    h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: bold; /* Agregar estilo más elegante al título */
+    margin-bottom: 10px;
+    color: #000; /* Cambiar el color del título a negro */
+}
+h3 {
+    font-family: Arial, sans-serif; /* Cambia la fuente según tus preferencias */
+    font-size: 1rem; /* Tamaño pequeño de fuente */
+    
+    font-weight: normal; /* Puedes ajustar el peso de la fuente según tus preferencias */
+    color: #333; /* Color del texto, puedes personalizarlo */
+    
+}
+
+    p {
+        margin: 5px 0;
+        color: #777;
+        font-size: 0.9rem;
+    }
+    .news-image-container.image-shown {
+    display: none;
+}
+
+/* Añade estilos para la clase "header" que envuelve el botón y el título */
+.header {
+    display: flex;
+    align-items: center; /* Alinear verticalmente */
+}
+.minimize-button {
+    background-color: transparent;
+    border: 0px solid #007BFF; /* Contorno azul */
+    /*border-radius: 15px; /* Bordes redondeados */
+    /*padding: 5px 5px; /* Espacio interno */
+    cursor: pointer;
+    margin-right: 1px; /* Espacio entre el botón y el título */
+    display: flex;
+    align-items: center;
+}
+
+.minimize-button span {
+    font-size: 20px; /* Tamaño del icono */
+    line-height: 1;
+    transition: transform 0.3s ease-in-out;
+    color: #0665ea; /* Cambiar el color del icono a azul */
+}
+
+.minimize-button.collapsed {
+    background-color: transparent; /* Fondo transparente cuando se minimiza */
+    border: 0px solid 1px solid #007BFF; /* Contorno azul cuando se minimiza */
+}
+
+.minimize-button.collapsed span {
+    transform: rotate(90deg);
+    font-weight: bold;
+}
+
+
+/* Estilo para el título */
+.header h1 {
+    margin-left: 3px; /* Agrega un espacio entre el botón y el título */
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 0; /* Elimina el margen inferior del título */
+}
+/* Aplicar scroll suave a los contenedores de noticias */
+.news-container {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    overflow-y: scroll; /* Habilitar la barra de desplazamiento vertical */
+    scroll-behavior: smooth; /* Aplicar desplazamiento suave */
+    max-width: 100%; /* Ajusta el ancho máximo al 100% */
+    align-items: stretch;
+    overflow-x: hidden;
+}
+
+/* Desactivar la barra de desplazamiento por defecto */
+.news-container::-webkit-scrollbar {
+    width: 0.1em;
+}
+
+.news-container::-webkit-scrollbar-thumb {
+    background-color: #007BFF;
+    border-radius: 10px;
+}
+
+.news-container::-webkit-scrollbar-track {
+    background-color: #f5f5f5;
+}
+
+/* Establecer una altura máxima para el contenedor de noticias */
+.news-container {
+    max-height: 4000px; /* Ajusta la altura máxima según tus necesidades */
+    
+    
+}
+
+/* Estilo para la flecha hacia abajo cuando está activa */
+.move-down-button.active {
+    background-color: rgb(3, 225, 3);
+    color: white;
+    border-radius: 5px;
+    border: 2px solid rgb(3, 225, 3);
+    margin-top: 5px; /* Márgen superior */
+    margin-bottom: 5px; /* Márgen inferior */
+    position: relative; /* Habilitar posicionamiento relativo */
+    
+    
+        
+}
+
+.imagen-con-fondo {
+    background-color: blue;
+    padding: 2px; /* Opcional: agregar relleno para dar espacio alrededor de la imagen */
+    display: inline-block; /* Opcional: mostrar la imagen como un elemento en línea */
+}
+
+.move-up-button .move-down-button {
+    margin-top: 5px; /* Márgen superior */
+    margin-bottom: 5px; /* Márgen inferior */
+    position: relative; /* Habilitar posicionamiento relativo */
+    border: 2px ;   
+}
+.move-up-button + .move-down-button {
+  margin-bottom: 5px;
+  margin-top: -5px;
+  
+}
+.news-column {
+        display: grid;
+        padding: 7px;
+        box-sizing: border-box;
+        transition: width 0.3s ease-in-out; /* Transición suave para la animación de minimizar/maximizar */
+        margin: 0;
+        margin-top: 20px; /* separacion con la barra*/
+        
+        
+        
+    }
+    .automatizarButton {
+  background-color: #007BFF; /* Color de fondo normal */
+  color: white; /* Color del texto */
+  border: none;
+  /*padding: 10px 20px;*/
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, opacity 0.3s; /* Transición suave para cambios */
+}
+
+/* Cambiar el fondo cuando se pulsa el botón */
+.automatizarButton:active {
+  background-color: #00b36b; /* Cambia el color de fondo al hacer clic */
+}
+
+/* Cambiar la opacidad cuando el botón está enfocado (por ejemplo, al pulsar Tab) */
+.automatizarButton:focus {
+  opacity: 0.5; /* Reduce la opacidad cuando se enfoca */
+}
+
+.news-column-hidden {
+    display: none;
+}
+
+/* Estilos para dispositivos móviles (ejemplo: ancho máximo de 600px) */
+@media screen and (max-width: 600px) {
+    .boton-desplegable .automatizarButton {
+        /* Agrega los estilos que desees para dispositivos móviles */
+        background-color: #333;
+        color: #fff;
+        border: 1px solid #fff;
+        padding: 5px 10px;
+        margin-right: 5px; /* Espacio entre el botón y el desplegable en dispositivos móviles */
+        display: none;
+    }
+
+    .boton-desplegable:hover .contenido-desplegable {
+        /* Agrega los estilos que desees para dispositivos móviles */
+        display: none;
+        position: relative; /* Cambia la posición a relativa para que se ajuste al botón */
+    }
+
+    .contenido-desplegable {
+        /* Agrega los estilos que desees para dispositivos móviles */
+        display: none;
+        background-color: #333;
+        min-width: auto; /* Ancho automático en dispositivos móviles */
+        box-shadow: none; /* Elimina la sombra en dispositivos móviles */
+        z-index: 1; /* Asegura que esté encima del botón en dispositivos móviles */
+        position: absolute; /* Ajusta la posición absoluta para que se ajuste al botón */
+    }
+    #todasLasNoticiasColumn{
+        display: grid;
+
+    }
+
+    .contenido-desplegable a {
+        /* Agrega los estilos que desees para dispositivos móviles */
+        color: #fff;
+        padding: 5px 10px;
+        text-decoration: none;
+        display: block;
+    }
+    .news-column {
+        display: none; 
+    }
+    #grid {
+        display: none; 
+    }
+    #auto {
+        display: none; 
+    }
+}
+
+.cargando {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.8); /* Fondo semitransparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Asegura que esté encima de todo */
+}
+
+.cargando p {
+  font-size: 24px;
+  font-weight: bold;
+}
